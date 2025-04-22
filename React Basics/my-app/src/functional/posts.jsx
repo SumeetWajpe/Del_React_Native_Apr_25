@@ -3,9 +3,15 @@ import axios from "axios";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/posts").then(response => {
+    // axios.get("https://jsonplaceholder.typicode.com/posts").then(response => {
+    //   setPosts(response.data);
+
+    (async () => {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/posts",
+      );
       setPosts(response.data);
-    });
+    })();
   }, []);
   return (
     <div>
