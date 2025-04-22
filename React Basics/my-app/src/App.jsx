@@ -46,7 +46,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="row">
-        <HelloFunctional title="Using Functional Component !" />
+        {/* <HelloFunctional title="Using Functional Component !" /> */}
 
         {this.state.msgs.map(msg => {
           return (
