@@ -1,7 +1,7 @@
 import React from "react";
 
 class Message extends React.Component {
-  state = { currLikes: 700 };
+  state = { currLikes: this.props.messageDetails.likes };
   IncrementLikes() {
     console.log("IncrementLikes");
     // this.props.messageDetails.likes++; // props are readonly
@@ -10,23 +10,33 @@ class Message extends React.Component {
   }
   render() {
     return (
-      <div
-        style={{ border: "1px solid black", margin: "10px", padding: "10px" }}
-      >
-        <img
-          src={this.props.messageDetails.imageUrl}
-          alt=""
-          height={"100px"}
-          width={"150px"}
-        />
-        <h2>{this.props.messageDetails.msg}</h2>
-        <p>From : {this.props.messageDetails.from}</p>
-        <p>To : {this.props.messageDetails.to}</p>
-        <button onClick={() => this.IncrementLikes()}>
-          {" "}
-          {this.state.currLikes} Likes
-          {/* {this.props.messageDetails.likes} */}
-        </button>
+      <div className="col-md-3">
+        <div className="card">
+          <img
+            src={this.props.messageDetails.imageUrl}
+            className="card-img-top"
+            alt="..."
+            height={200}
+          />
+          <div className="card-body">
+            <h5 className="card-title">{this.props.messageDetails.msg}</h5>
+            <p className="card-text">From : {this.props.messageDetails.from}</p>
+            <p className="card-text">To : {this.props.messageDetails.to}</p>
+            <button
+              className="btn btn-primary"
+              onClick={() => this.IncrementLikes()}
+            >
+              {this.state.currLikes} Likes
+              {/* {this.props.messageDetails.likes} */}
+            </button>
+            <button
+              className="btn btn-danger mx-2"
+              onClick={() => this.props.DeleteAMessage()}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
