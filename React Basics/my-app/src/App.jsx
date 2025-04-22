@@ -6,6 +6,7 @@ class App extends React.Component {
   state = {
     msgs: [
       {
+        id: 1,
         msg: "Hey !",
         from: "John",
         to: "Carter",
@@ -14,6 +15,7 @@ class App extends React.Component {
           "https://images.squarespace-cdn.com/content/v1/5e949a92e17d55230cd1d44f/65963c6a-a64d-44ba-bef1-0d15bc5f25dc/Hello201x1.png",
       },
       {
+        id: 2,
         msg: "Hello !",
         from: "Peter",
         to: "Parker",
@@ -22,6 +24,7 @@ class App extends React.Component {
           "https://www.shutterstock.com/image-vector/hey-text-speech-bubble-hi-260nw-2328471449.jpg",
       },
       {
+        id: 3,
         msg: "Bye !",
         from: "Mick",
         likes: 300,
@@ -32,8 +35,11 @@ class App extends React.Component {
     ],
   };
 
-  DeleteAMessage() {
-    console.log("Deleting a message");
+  DeleteAMessage(id) {
+    console.log("Deleting a message", id);
+    // setState
+    let newMessageList = this.state.msgs.filter(msg => msg.id !== id); // remove the first message
+    this.setState({ msgs: newMessageList });// render
   }
 
   render() {
@@ -43,7 +49,7 @@ class App extends React.Component {
           return (
             <Message
               messageDetails={msg}
-              DeleteAMessage={() => this.DeleteAMessage()}
+              DeleteAMessage={id => this.DeleteAMessage(id)}
             />
           );
         })}

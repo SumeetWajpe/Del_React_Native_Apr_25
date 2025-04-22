@@ -9,6 +9,7 @@ class Message extends React.Component {
     this.setState({ currLikes: this.state.currLikes + 1 });
   }
   render() {
+    // console.log("Within Render of Message !");
     return (
       <div className="col-md-3">
         <div className="card">
@@ -31,7 +32,9 @@ class Message extends React.Component {
             </button>
             <button
               className="btn btn-danger mx-2"
-              onClick={() => this.props.DeleteAMessage()}
+              onClick={() =>
+                this.props.DeleteAMessage(this.props.messageDetails.id)
+              }
             >
               Delete
             </button>
