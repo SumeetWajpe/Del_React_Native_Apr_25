@@ -12,7 +12,9 @@ const Counter = () => {
       </button>
       <hr />
       <strong>Age : {mystate.age}</strong>
-      {/* <button onClick={() => setAge(age + 1)}>++</button> */}
+      <button onClick={() => setMyState({ ...mystate, age: mystate.age + 1 })}>
+        ++
+      </button>
     </div>
   );
 };
