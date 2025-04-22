@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 // class Message extends React.Component {
+//   state = { currLikes: this.props.messageDetails.likes };
+//   IncrementLikes() {
+//     console.log("IncrementLikes");
+//     // this.props.messageDetails.likes++; // props are readonly
+//     // this.state.currLikes++; // state is immutable
+//     this.setState({ currLikes: this.state.currLikes + 1 });
+//   }
 //   render() {
-//     // console.log("Within Render of Message !");
+
 //     return (
 //       <div className="col-md-3">
 //         <div className="card">
@@ -16,8 +23,17 @@ import React from "react";
 //             <h5 className="card-title">{this.props.messageDetails.msg}</h5>
 //             <p className="card-text">From : {this.props.messageDetails.from}</p>
 //             <p className="card-text">To : {this.props.messageDetails.to}</p>
-//             <button className="btn btn-primary">
-//               {this.props.messageDetails.likes} Likes
+//             <button
+//               className="btn btn-primary"
+//               onClick={() => this.IncrementLikes()}
+//             >
+//               {this.state.currLikes} Likes
+//               {/* {this.props.messageDetails.likes} */}
+//             </button>
+//             <button
+//               className="btn btn-danger mx-2"
+//             >
+//               Delete
 //             </button>
 //           </div>
 //         </div>
@@ -25,8 +41,10 @@ import React from "react";
 //     );
 //   }
 // }
+// export default Message;
 
 const Message = props => {
+  const [currLikes, setCurrLikes] = useState(props.messageDetails.likes);
   return (
     <div className="col-md-3">
       <div className="card">
@@ -40,8 +58,11 @@ const Message = props => {
           <h5 className="card-title">{props.messageDetails.msg}</h5>
           <p className="card-text">From : {props.messageDetails.from}</p>
           <p className="card-text">To : {props.messageDetails.to}</p>
-          <button className="btn btn-primary">
-            {props.messageDetails.likes} Likes
+          <button
+            className="btn btn-primary"
+            onClick={() => setCurrLikes(currLikes + 1)}
+          >
+            {currLikes} Likes
           </button>
         </div>
       </div>
