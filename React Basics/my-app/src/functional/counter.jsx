@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 
 const Counter = () => {
-  const [count, setCount] = useState(100); // state hook - returns an array (stateVar,setStateVar) - initially set to 100
-  const [age, setAge] = useState(18);
+  const [mystate, setMyState] = useState({ count: 100, age: 18 }); // state hook - returns an array (stateVar,setStateVar) - initially set to 100
   return (
     <div>
-      <strong>Counter : {count}</strong>
-      <button onClick={() => setCount(count + 10)}>++</button>
+      <strong>Counter : {mystate.count}</strong>
+      <button
+        onClick={() => setMyState({ ...mystate, count: mystate.count + 10 })}
+      >
+        ++
+      </button>
       <hr />
-      <strong>Age : {age}</strong>
-      <button onClick={() => setAge(age + 1)}>++</button>
+      <strong>Age : {mystate.age}</strong>
+      {/* <button onClick={() => setAge(age + 1)}>++</button> */}
     </div>
   );
 };
