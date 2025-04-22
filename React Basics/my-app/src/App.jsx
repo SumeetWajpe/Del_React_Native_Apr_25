@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import Message from "./Message";
+import HelloFunctional from "./functional/hellofunctional";
 
 class App extends React.Component {
   state = {
@@ -39,15 +40,18 @@ class App extends React.Component {
     console.log("Deleting a message", id);
     // setState
     let newMessageList = this.state.msgs.filter(msg => msg.id !== id); // remove the first message
-    this.setState({ msgs: newMessageList });// render
+    this.setState({ msgs: newMessageList }); // render
   }
 
   render() {
     return (
       <div className="row">
+        <HelloFunctional />
+
         {this.state.msgs.map(msg => {
           return (
             <Message
+              key={msg.id}
               messageDetails={msg}
               DeleteAMessage={id => this.DeleteAMessage(id)}
             />
