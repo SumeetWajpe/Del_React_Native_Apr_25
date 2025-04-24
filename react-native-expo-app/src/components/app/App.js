@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import ListOfMessages from "../listofmessages/listofmessages";
 
 const App = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <Text style={styles.title}>Hello, React Native!</Text>
+      <ListOfMessages />
     </SafeAreaView>
   );
 };
