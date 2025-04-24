@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
+import Message from "../message/message";
 
 const messages = [
   {
@@ -26,13 +27,7 @@ const ListOfMessages = () => {
   return (
     <View>
       {messages.map(message => (
-        <View key={message.id} style={{ padding: 10, borderBottomWidth: 1 }}>
-          <Text style={{ fontWeight: "bold" }}>{message.sender}</Text>
-          <Text>{message.text}</Text>
-          <Text style={{ fontSize: 12, color: "gray" }}>
-            {new Date(message.timestamp).toLocaleString()}
-          </Text>
-        </View>
+        <Message message={message} />
       ))}
     </View>
   );
