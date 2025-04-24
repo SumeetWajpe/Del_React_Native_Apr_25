@@ -14,9 +14,6 @@ const App = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1, // display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f0f0f0",
   },
   title: {
     fontSize: 20,
