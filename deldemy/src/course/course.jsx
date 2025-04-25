@@ -1,16 +1,22 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
-const CourseItem = ({ item }) => (
-  <View style={styles.item}>
-    <Image source={{ uri: item.image }} style={styles.image} />
-    <View style={styles.textContainer}>
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.subtitle}>Instructor: {item.instructor}</Text>
-      <Text style={styles.subtitle}>Duration: {item.duration}</Text>
-    </View>
-  </View>
-);
+const CourseItem = ({ item }) => {
+  const navigation = useNavigation();
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate("CourseDetails", {})}>
+      <View style={styles.item}>
+        <Image source={{ uri: item.image }} style={styles.image} />
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.subtitle}>Instructor: {item.instructor}</Text>
+          <Text style={styles.subtitle}>Duration: {item.duration}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   item: {
