@@ -6,8 +6,8 @@ export const GrandParent = () => {
     <MyCounterContext.Provider
       value={{
         count,
-        incrementCount: function () {
-          setCount(count + 1);
+        incrementCount: function (incrementBy) {
+          setCount(count + incrementBy);
           console.log("Count is incremented");
         },
       }}
@@ -33,7 +33,7 @@ const Child = () => {
     <>
       <h1>Child</h1>
       <p> Count : {ctx.count}</p>
-      <button onClick={() => ctx.incrementCount()}>Increment</button>
+      <button onClick={() => ctx.incrementCount(10)}>Increment</button>
     </>
   );
 };
