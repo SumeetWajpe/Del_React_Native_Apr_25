@@ -22,7 +22,7 @@ const ListOfCourses = () => {
   });
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Courses List</Text>
+      <Text style={styles.header}>All Courses</Text>
       <FlatList
         data={courses}
         keyExtractor={item => item.id}

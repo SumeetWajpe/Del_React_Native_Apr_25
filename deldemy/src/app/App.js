@@ -4,21 +4,23 @@ import { SafeAreaView, StyleSheet } from "react-native";
 
 import ListOfCourses from "../listofcourses/listofcourses";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Courses"
-          component={ListOfCourses}
-          options={{ }}
-        />
-        <ListOfCourses />
-      </Stack.Navigator>
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={styles.safeArea}>
+        <Stack.Navigator initialRouteName="Courses">
+          <Stack.Screen
+            name="Courses"
+            component={ListOfCourses}
+            options={{ title: "Deldemy Courses List" }}
+          />
+        </Stack.Navigator>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 };
 
