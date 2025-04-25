@@ -5,7 +5,9 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 const CourseItem = ({ item }) => {
   const navigation = useNavigation();
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("CourseDetails", {})}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("CourseDetails", { course: item })}
+    >
       <View style={styles.item}>
         <Image source={{ uri: item.image }} style={styles.image} />
         <View style={styles.textContainer}>
