@@ -1,13 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useCart } from "../context/cartContext";
+import { useNavigation } from "@react-navigation/native";
 
 const CartCount = () => {
   const { cartItems } = useCart();
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.cartBadge}>
-      <Text> 🛒 {cartItems.length} </Text>
-    </View>
+    <TouchableOpacity
+      onPress={() => {
+        return navigation.navigate("CartSummary");
+      }}
+    >
+      <View style={styles.cartBadge}>
+        <Text> 🛒 {cartItems.length} </Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 

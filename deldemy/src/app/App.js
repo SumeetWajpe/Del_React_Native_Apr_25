@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import CourseDetails from "../coursedetails/coursedetails";
 import { CartProvider } from "../context/cartContext";
 import Header from "../header/header";
+import CartSummary from "../cart/cartsummary";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ const App = () => {
               component={CourseDetails}
               options={{ title: "Course Details" }}
             />
+            <Stack.Screen name="CartSummary" component={CartSummary} />
           </Stack.Navigator>
         </SafeAreaView>
       </NavigationContainer>
