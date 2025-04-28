@@ -8,7 +8,7 @@ const ListOfCourses = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("http://192.168.101.3:3000/courses");
+        const response = await axios.get("http://10.0.2.2:3000/courses");
         if (response.status !== 200) {
           throw new Error("Failed to fetch courses");
         }

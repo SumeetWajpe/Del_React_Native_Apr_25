@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import CourseDetails from "../coursedetails/coursedetails";
 import { CartProvider } from "../context/cartContext";
+import Header from "../header/header";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ const App = () => {
     <CartProvider>
       <NavigationContainer>
         <SafeAreaView style={styles.safeArea}>
+          <Header />
           <Stack.Navigator initialRouteName="Courses">
             <Stack.Screen
               name="Courses"
