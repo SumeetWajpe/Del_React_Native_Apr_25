@@ -6,28 +6,31 @@ import ListOfCourses from "../listofcourses/listofcourses";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import CourseDetails from "../coursedetails/coursedetails";
+import { CartProvider } from "../context/cartContext";
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <SafeAreaView style={styles.safeArea}>
-        <Stack.Navigator initialRouteName="Courses">
-          <Stack.Screen
-            name="Courses"
-            component={ListOfCourses}
-            options={{ title: "Deldemy Courses List" }}
-          />
+    <CartProvider>
+      <NavigationContainer>
+        <SafeAreaView style={styles.safeArea}>
+          <Stack.Navigator initialRouteName="Courses">
+            <Stack.Screen
+              name="Courses"
+              component={ListOfCourses}
+              options={{ title: "Deldemy Courses List" }}
+            />
 
-          <Stack.Screen
-            name="CourseDetails"
-            component={CourseDetails}
-            options={{ title: "Course Details" }}
-          />
-        </Stack.Navigator>
-      </SafeAreaView>
-    </NavigationContainer>
+            <Stack.Screen
+              name="CourseDetails"
+              component={CourseDetails}
+              options={{ title: "Course Details" }}
+            />
+          </Stack.Navigator>
+        </SafeAreaView>
+      </NavigationContainer>
+    </CartProvider>
   );
 };
 

@@ -1,20 +1,24 @@
 import React, { useContext, useState } from "react";
-const MyCounterContext = React.createContext(0);
+const MyCounterContext = React.createContext();
+
+const MyCounterProvider = ({ children }) => {
+  const [count, setCount] = useState(0);
+  const incrementCount = value => {
+    setCount(count + value);
+  };
+  return (
+    <MyCounterContext.Provider value={{ count, incrementCount }}>
+      {children}
+    </MyCounterContext.Provider>
+  );
+};
+
 export const GrandParent = () => {
   const [count, setCount] = useState(100);
   return (
-    <MyCounterContext.Provider
-      value={{
-        count,
-        incrementCount: function (incrementBy) {
-          setCount(count + incrementBy);
-          console.log("Count is incremented");
-        },
-      }}
-    >
-      <h1>Grandparent</h1>
+    <MyCounterProvider>
       <Parent />
-    </MyCounterContext.Provider>
+    </MyCounterProvider>
   );
 };
 const Parent = () => {
