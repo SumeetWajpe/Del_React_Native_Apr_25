@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, Text, StyleSheet, Image, Button } from "react-native";
+import { useCart } from "../context/cartContext";
 
 const CourseDetails = ({ route }) => {
+  // const cartCtx = useContext(CartContext); // use Custom hook instead
+  const { addToCart } = useCart();
+
   const { course } = route.params;
   const [currLikes, setCurrLikes] = useState(course.likes);
+
+  const handleAddToCart = () => {
+    addToCart(course);
+  };
 
   return (
     <View style={styles.container}>
@@ -21,6 +29,7 @@ const CourseDetails = ({ route }) => {
       <Text style={styles.subtitle}>₹. {course.price}</Text>
 
       <Text style={styles.description}>{course.description}</Text>
+      <Button title="Add to Cart" onPress={handleAddToCart}></Button>
     </View>
   );
 };
