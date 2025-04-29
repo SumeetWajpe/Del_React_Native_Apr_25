@@ -37,7 +37,7 @@ const App = () => {
     //   </NavigationContainer>
     // </CartProvider>
 
-    <Login />
+    
   );
 };
 
