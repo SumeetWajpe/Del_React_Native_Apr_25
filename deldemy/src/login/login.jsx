@@ -1,11 +1,26 @@
+import axios from "axios";
 import React, { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
-
+import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
+import axios from "axios";
+import { useAuth } from "../context/authContext";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const handleLogin = () => {
+  const { login } = useAuth();
+  const handleLogin = async () => {
     // make an async call axios
+    // if call succeeds token will be returned as response
+    // call login from authContext
+
+    try {
+      const response = await axios.post("", { username, password });
+      if (response.status !== 200) throw new Error("Invalid Credentials");
+      const token = response.data;
+      login(token);
+    } catch (err) {
+      Alert.alert("Error", err.message);
+      console.log(err.message);
+    }
   };
   return (
     <View style={styles.container}>
