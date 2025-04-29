@@ -9,32 +9,35 @@ import CourseDetails from "../coursedetails/coursedetails";
 import { CartProvider } from "../context/cartContext";
 import Header from "../header/header";
 import CartSummary from "../cart/cartsummary";
+import Login from "../login/login";
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <CartProvider>
-      <NavigationContainer>
-        <SafeAreaView style={styles.safeArea}>
-          <Header />
-          <Stack.Navigator initialRouteName="Courses">
-            <Stack.Screen
-              name="Courses"
-              component={ListOfCourses}
-              options={{ title: "Deldemy Courses List" }}
-            />
+    // <CartProvider>
+    //   <NavigationContainer>
+    //     <SafeAreaView style={styles.safeArea}>
+    //       <Header />
+    //       <Stack.Navigator initialRouteName="Courses">
+    //         <Stack.Screen
+    //           name="Courses"
+    //           component={ListOfCourses}
+    //           options={{ title: "Deldemy Courses List" }}
+    //         />
 
-            <Stack.Screen
-              name="CourseDetails"
-              component={CourseDetails}
-              options={{ title: "Course Details" }}
-            />
-            <Stack.Screen name="CartSummary" component={CartSummary} />
-          </Stack.Navigator>
-        </SafeAreaView>
-      </NavigationContainer>
-    </CartProvider>
+    //         <Stack.Screen
+    //           name="CourseDetails"
+    //           component={CourseDetails}
+    //           options={{ title: "Course Details" }}
+    //         />
+    //         <Stack.Screen name="CartSummary" component={CartSummary} />
+    //       </Stack.Navigator>
+    //     </SafeAreaView>
+    //   </NavigationContainer>
+    // </CartProvider>
+
+    <Login />
   );
 };
 
