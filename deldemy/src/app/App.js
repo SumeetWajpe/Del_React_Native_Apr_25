@@ -10,6 +10,8 @@ import { CartProvider } from "../context/cartContext";
 import Header from "../header/header";
 import CartSummary from "../cart/cartsummary";
 import Login from "../login/login";
+import AuthProvider from "../context/authContext";
+import AppNavigator from "./appNavigator";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +39,13 @@ const App = () => {
     //   </NavigationContainer>
     // </CartProvider>
 
-    
+    <AuthProvider>
+      <CartProvider>
+        <SafeAreaView style={styles.safeArea}>
+          <AppNavigator />
+        </SafeAreaView>
+      </CartProvider>
+    </AuthProvider>
   );
 };
 

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
-import axios from "axios";
 import { useAuth } from "../context/authContext";
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -13,7 +12,10 @@ const Login = () => {
     // call login from authContext
 
     try {
-      const response = await axios.post("url", { username, password });
+      const response = await axios.post("http://10.0.2.2:4000/login", {
+        username,
+        password,
+      });
       if (response.status !== 200) throw new Error("Invalid Credentials");
       const token = response.data;
       login(token);

@@ -1,8 +1,8 @@
-import { createStaticNavigation } from "@react-navigation/native";
 import React from "react";
 import ListOfCourses from "../listofcourses/listofcourses";
+import { createStackNavigator } from "@react-navigation/stack";
 
-const Stack = createStaticNavigation();
+const Stack = createStackNavigator();
 
 // const MyTabs = createBottomTabNavigator({}); // For tabbed Navigation
 

@@ -4,6 +4,9 @@ const secret_key = "JWTSecurity";
 const jwt = require("jsonwebtoken");
 
 app.post("/login", (req, res) => {
+  // fetch username & password from request object
+  // verify the user with the credentials pass exists in DB (mongodb)
+  // then generate to token as below
   jwt.sign(
     { name: "admin" },
     secret_key,
