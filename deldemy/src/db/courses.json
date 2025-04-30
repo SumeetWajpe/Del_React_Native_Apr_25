@@ -54,6 +54,17 @@
       "rating": 4,
       "image": "https://cdn.zapier.com/storage/blog/4ec8fc7dc3a75758a3913bab9e5a4fd8_2.500x278.png",
       "description": "Explore state management solutions in React Native, including Context API, Redux, and MobX."
+    },
+    {
+      "id": "6",
+      "title": "Kubernetes Basic",
+      "instructor": "Emily Davis",
+      "duration": "2 weeks",
+      "likes": 300,
+      "price": 8000,
+      "rating": 4,
+      "image": "https://cdn.prod.website-files.com/6527fe8ad7301efb15574cc7/65535c0459f914d06ddeef7a_Kubernetes-Everything-You-Need-to-Know-2048x1159.png",
+      "description": "Kubernetes (often shortened to K8s) is an open-source container orchestration system that automates the deployment, scaling, and management of containerized applications. It's a platform for managing workloads like microservices and other containerized applications at scale. "
     }
   ]
 }

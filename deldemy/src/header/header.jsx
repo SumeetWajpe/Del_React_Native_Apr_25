@@ -1,12 +1,15 @@
 import React from "react";
 import CartCount from "../cart/cart";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
+import { useAuth } from "../context/authContext";
 
 const Header = () => {
+  const { logout } = useAuth();
   return (
     <View style={styles.header}>
       <Text style={styles.headerText}> 📚 Deldemy</Text>
       <CartCount />
+      <Button title="Logout" onPress={() => logout()}></Button>
     </View>
   );
 };
